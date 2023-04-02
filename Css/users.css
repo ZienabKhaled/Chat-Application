@@ -103,7 +103,6 @@ body
     font-weight: 300;
 }
 
-
 /* logout button */
 #header #logout
 {
@@ -183,4 +182,130 @@ body
 
 .searchButton:hover{
     background: #e6336f;
+}
+
+/* online users list */
+#onlineUsers
+{
+    height: 420px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 225px;
+    overflow-y: auto;
+}
+
+#onlineUsers .profile
+{
+    height: 90px;
+    width: 450px;
+    background: linear-gradient(to top , rgba(255,255,255,0.2), rgba(255,255,255,0.4));
+    border: 1px solid rgba(255,255,255,0.4);
+    border-right: 1px solid rgba(225,225,225,0.3);
+    border-bottom:1px solid rgba(225,225,225,0.3);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 5%;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px #00000030;
+    cursor: pointer;
+} 
+
+/* to display multiple users */
+#onlineUsers .profile:first-child
+{
+    top: 0px;
+}
+
+/* profile image */
+#onlineUsers .profile .image
+{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #e6336f;
+    position: absolute;
+    left: 25px;
+}
+
+#onlineUsers .profile .image img
+{
+    width: 100%;
+}
+
+/* name and last msg */
+
+#onlineUsers .profile .name,.lastMessage
+{
+    height: 40px;
+    width: 60%;
+    position: absolute;
+    left: 110px;
+    line-height: 40px;
+    overflow: hidden;
+}
+
+
+/* name */
+#onlineUsers .profile .name
+{
+    color: #ce0347;
+    top: 10px;
+    font-size: 19px;
+}
+
+/* last Msg */
+#onlineUsers .profile .lastMessage
+{
+    bottom: 10px;
+    color: #000;
+
+}
+
+/* status */
+#onlineUsers .profile .status
+{
+    height: 15px;
+    width: 15px;
+    border-radius: 10px;
+    position: absolute;
+    right: 40px;
+}
+
+#onlineUsers .profile .online
+{
+    background: linear-gradient(to top , #1d6d1d, rgba(255,255,255,0.4));
+    border-right: 1px solid rgba(225,225,225,0.3);
+    border-bottom:1px solid rgba(225,225,225,0.3);
+}
+
+#onlineUsers .profile .offline
+{
+    background: linear-gradient(to top , #7c1b1f, rgba(255,255,255,0.4));
+    border-right: 1px solid rgba(225,225,225,0.3);
+    border-bottom:1px solid rgba(225,225,225,0.3);
+}
+
+/* customizing scroll bar */
+#onlineUsers::-webkit-scrollbar
+{
+    background: transparent;
+}
+
+#onlineUsers::-webkit-scrollbar-track
+{
+    width: 40px;
+}
+#onlineUsers::-webkit-scrollbar-thumb
+{
+    height: 40px;
+    background: linear-gradient(to top , rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+    border: 1px solid rgba(255,255,255,0.4);
+    border-right: 1px solid rgba(225,225,225,0.3);
+    border-bottom:1px solid rgba(225,225,225,0.3);
+    border-radius: 30px;
 }
