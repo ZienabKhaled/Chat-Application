@@ -11,8 +11,8 @@
     <div class="circle"></div>
     <div class="circle circle2"></div>
     <div id="container">
-        <h2>Login</h2>
-        <form action="" autocomplete="off" id="login">
+        <h2>Sign Up</h2>
+        <form action="" method="POST" enctype="multipart/form-data" name="signup" autocomplete="off" id="signupData">
             <div id="errors">Invalid Email Address</div>
             <input type="text" name="fname" id="fname" class="name" placeholder="First Name" required>
             <input type="text" name="lname" id="lname" class="name" placeholder="Last Name" required><br>
@@ -22,9 +22,13 @@
             <input type="file" name="image" id="image" required><br>
             <input type="submit" name="signup" id="signup" value="Sign Up">
             <p>Already have an account? <a href="#">Login</a></p>
-
         </form>
     </div>
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/signup.js"></script>
 
 </body>
 </html>
