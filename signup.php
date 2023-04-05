@@ -1,3 +1,11 @@
+<?php
+include_once("php/config.php");
+session_start();
+if(isset($_SESSION['id'])){
+    header("location: users.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +29,7 @@
             <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required><br>
             <input type="file" name="image" id="image" required><br>
             <input type="submit" name="signup" id="signup" value="Sign Up">
-            <p>Already have an account? <a href="#">Login</a></p>
+            <p>Already have an account? <a href="login.php">Login</a></p>
         </form>
     </div>
 

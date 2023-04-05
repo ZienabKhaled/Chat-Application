@@ -1,3 +1,11 @@
+<?php
+session_start();
+include_once("php/config.php");
+if(!isset($_SESSION['id'])){
+    header("location: login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,13 +37,13 @@
           <h3 id="headerStatus">Online</h3>
         </div>
         <!--logout button-->
-        <button id="logout"><a href="#">Logout</a></button>
+        <button id="logout"><a href="php/logout.php">Logout</a></button>
       </div>
       <!--search box-->
       <div id="searchBox">
         <input
           type="text"
-          name=""
+          name="search"
           id="search"
           placeholder="Find a Friend To Chat With"
           autocomplete="off"
@@ -45,52 +53,36 @@
       <!--Display online users-->
       <!--users list-->
       <div id="onlineUsers">
+
         <!--user one-->
-        <a href="">
+        <!-- <a href="">
           <div class="profile">
-            <div class="image">
+            <div class="image"> -->
               <!--profile image  -->
-              <img src="assets/hagar chat.jpeg" alt="" />
-            </div>
+              <!-- <img src="assets/hagar chat.jpeg" alt="" />
+            </div> -->
             <!--name-->
-            <h2 class="name">Hagar Ahmed</h2>
+            <!-- <h2 class="name">Hagar Ahmed</h2> -->
             <!--last msg-->
-            <p class="lastMessage">
+            <!-- <p class="lastMessage">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores
               quisquam commodi odio officia accusantium eligendi provident
               maiores molestiae voluptatibus quod beatae est illo delectus
               similique porro, impedit qui? Excepturi, consequuntur.
-            </p>
+            </p> -->
             <!--status-->
-            <div class="status online"></div>
+            <!-- <div class="status online"></div>
           </div>
-        </a>
-
-
-        <!--user Two-->
-        <a href="">
-            <div class="profile">
-              <div class="image">
-                <!--profile image  -->
-                <img src="assets/hagar chat.jpeg" alt="" />
-              </div>
-              <!--name-->
-              <h2 class="name">Hagar Ahmed</h2>
-              <!--last msg-->
-              <p class="lastMessage">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores
-                quisquam commodi odio officia accusantium eligendi provident
-                maiores molestiae voluptatibus quod beatae est illo delectus
-                similique porro, impedit qui? Excepturi, consequuntur.
-              </p>
-              <!--status-->
-              <div class="status offline"></div>
-            </div>
-          </a>
-
-
-          
+        </a> -->         
       </div>
     </div>
+
+
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+         crossorigin="anonymous"></script>
+        <script src="js/users.js"></script>
+
   </body>
 </html>

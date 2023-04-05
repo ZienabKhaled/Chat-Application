@@ -1,16 +1,18 @@
 <?php
+// include config file
 include_once("config.php");
-// echo ' <p style="color:red;">hi</p>';
 
-var_dump($_POST);
-if (isset($_POST['signup'])) {
-    if (empty($_POST['fname']) || empty($_POST['lname']) ||empty($_POST['email']) || empty($_POST['password'])
-     || empty($_POST['confirmPassword']) || empty($_FILES['image'])) {
+// if signup button clicked
+if(isset($_POST['signup'])){
+    if(empty($_POST['fname']) || empty($_POST['lname']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['confirmPassword']) || empty($_FILES['image'])){
         echo "All inputs are required";
-    } else {
-        $firstName = mysqli_real_escape_string($conn, $_POST["fname"]);
-        $lastName = mysqli_real_escape_string($conn, $_POST["lname"]);
-        $email = mysqli_real_escape_string($conn, $_POST["email"]);
+    }else{   
+    // first name
+    $firstName = mysqli_real_escape_string($conn, $_POST["fname"]);
+    // last name
+    $lastName = mysqli_real_escape_string($conn, $_POST["lname"]);
+    // email
+    $email = mysqli_real_escape_string($conn, $_POST["email"]);
 
     // email validation
     $emailQuery = "SELECT * FROM `users` WHERE email = '{$email}'";
@@ -18,7 +20,7 @@ if (isset($_POST['signup'])) {
 
     if($runEmailQuery){
         if(mysqli_num_rows($runEmailQuery) > 0){
-            echo "Email already exists.";
+            echo "Email is already exist.";
         }else{
             // check password length
             if(strlen($_POST["password"]) < 8 || strlen($_POST["confirmPassword"]) < 8){
@@ -32,6 +34,12 @@ if (isset($_POST['signup'])) {
 
                 // profile image
                 $image = $_FILES['image'];
+
+                // image name
+                // size
+                // temporary name
+                // type
+
                 $imageName = $image['name'];
                 $imageSize = $image['size'];
                 $imageTempName = $image['tmp_name'];
@@ -75,4 +83,3 @@ if (isset($_POST['signup'])) {
     }
     }
 }
-
