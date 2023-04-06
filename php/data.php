@@ -3,23 +3,23 @@
 include_once("config.php");
 
 while($row = mysqli_fetch_assoc($query)){
-// // show last message send
-// $outgoing = $_SESSION['id'];
-// $incoming = $row['id'];
-// $sql = "SELECT * FROM `messages` WHERE (incoming = '{$incoming}' AND outgoing = '{$outgoing}') OR (incoming = '{$outgoing}' AND outgoing = '{$incoming}') ORDER BY messages_id DESC LIMIT 1";
+// show last message send
+$outgoing = $_SESSION['id'];
+$incoming = $row['id'];
+$sql = "SELECT * FROM `messages` WHERE (incoming = '{$incoming}' AND outgoing = '{$outgoing}') OR (incoming = '{$outgoing}' AND outgoing = '{$incoming}') ORDER BY messages_id DESC LIMIT 1";
 
-// $runSQL = mysqli_query($conn, $sql);
+$runSQL = mysqli_query($conn, $sql);
 
-// if($runSQL){
-//     $row2 = mysqli_fetch_assoc($runSQL);
-//     if(mysqli_num_rows($runSQL) > 0){
-//         $lastMessage = $row2['messages'];
-//     }else{
-//         $lastMessage = "No messages available";
-//     }
-// }else{
-//     echo "Query Failed";
-// }
+if($runSQL){
+    $row2 = mysqli_fetch_assoc($runSQL);
+    if(mysqli_num_rows($runSQL) > 0){
+        $lastMessage = $row2['messages'];
+    }else{
+        $lastMessage = "No messages available";
+    }
+}else{
+    echo "Query Failed";
+}
 
 // show status online or offine
 if($row['status'] == "Online"){
@@ -29,6 +29,7 @@ if($row['status'] == "Online"){
 }
 // show Online users
     $onlineUsers = '
+    <a href="messages.php?userid='.$row["id"].'">
     <div class="profile">
         <!-- profile image -->
         <div class="image">
@@ -37,6 +38,7 @@ if($row['status'] == "Online"){
         <!-- name -->
         <h2 class="name">'.$row["firstname"]." ".$row["lastname"].'</h2>
         <!-- last message -->
+        <p class="lastMessage">'.$lastMessage.'</p>
         <!-- status -->
         <div class="status '.$status.'"></div>
     </div>
@@ -44,6 +46,4 @@ if($row['status'] == "Online"){
 echo $onlineUsers;
 };
 
-// <a href="messages.php?userid='.$row["id"].'">
-// <p class="lastMessage">'.$lastMessage.'</p>
-
+?>

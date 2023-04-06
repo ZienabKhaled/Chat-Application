@@ -56,8 +56,8 @@ $(document).ready(function(){
           // get response
           success: function(response){
               if(response == "success"){
-                  location.href = "../login.php";
-              }else{
+                location.href = "login.php";              
+            }else{
                   $("#errors").css("display", "block");
                   $("#errors").html(response);
               }
@@ -65,3 +65,5 @@ $(document).ready(function(){
       });
   });
 });
+
+

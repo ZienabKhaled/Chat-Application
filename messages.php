@@ -51,7 +51,7 @@ if (!isset($_SESSION['id'])) {
 
                 <!-- user Detail (name & status) -->
                 <div id="userDetail">
-                    <h3 id="name"><?php echo $info['firstName'] . " " . $info['lastName']; ?></h3>
+                    <h3 id="name"><?php echo $info['firstname'] . " " . $info['lastname']; ?></h3>
                     <p id="status"><?php echo $info['status']; ?></p>
                 </div>
         </div>
@@ -81,17 +81,17 @@ if (!isset($_SESSION['id'])) {
     </div>
 
     <!-- input messages -->
-    <form action="" id="typingArea">
+    <form action="" method="POST" id="typingArea">
     <div id="messagingTypingSection">
         <input type="text" name="outgoing" placeholder="Type Your Message Here." id="outgoing" class="setid" autocomplete="off" value="<?php echo $myid; ?>" hidden>
-        <input type="text" name="incoming" placeholder="Type Your Message Here." id="incoming" class="setid" autocomplete="off" value="<?php echo $userid?>" hidden>
+        <input type="text" name="incoming" placeholder="Type Your Message Here." id="incoming" class="setid" autocomplete="off" value="<?php echo $userid;?>" hidden>
         <input type="text" name="typingField" placeholder="Type Your Message Here." id="typingField" autocomplete="off">
         <input type="submit" value="Send" id="sendMessage">
     </div>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="js/message.js"></script>
+    <script src="js/messages.js"></script>
     <script src="js/showChat.js"></script>
 </body>
 

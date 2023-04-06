@@ -20,7 +20,7 @@ if(isset($_SESSION['id'])){
     <div class="circle circle2"></div>
     <div id="container">
         <h2>Sign Up</h2>
-        <form action="" method="POST" enctype="multipart/form-data" name="signup" autocomplete="off" id="signupData">
+        <form method="POST" enctype="multipart/form-data" name="signup" autocomplete="off" id="signupData">
             <div id="errors">Invalid Email Address</div>
             <input type="text" name="fname" id="fname" class="name" placeholder="First Name" required>
             <input type="text" name="lname" id="lname" class="name" placeholder="Last Name" required><br>

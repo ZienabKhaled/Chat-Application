@@ -26,16 +26,42 @@ if(!isset($_SESSION['id'])){
     <div id="container">
       <!--header-->
       <div id="header">
+      <?php
+        $headerQuery = "SELECT * FROM `users` WHERE id = '{$_SESSION["id"]}'";
+        $runHeaderQuery = mysqli_query($conn, $headerQuery);
+
+        if(!$runHeaderQuery){
+            echo "connection failed";
+        }else{
+    $info = mysqli_fetch_assoc($runHeaderQuery);
+
+        ?>
+
+                <!-- profile image -->
+                <div id="headerProfile">
+            <img style="height: 70px; width: 70px;  overflow: hidden; border: 2px solid #e6336f; border-radius: 50%;" src="assets/<?php echo $info['image']; ?>" alt="">
+            </div>
+            <div id="details">
+                <!-- full name -->
+                <h3 id="headerName"><?php echo $info['firstname']." ".$info['lastname']; ?></h3>
+                <!-- status => Onine or Offline -->
+                <h3 id="headerStatus"><?php echo $info['status']; ?></h3>
+            </div>
+            <?php
+            }
+            ?>
+
+
         <!--profile image-->
-        <div id="headerProfile">
+        <!-- <div id="headerProfile">
           <img src="assets/ana chat.jpeg" alt="" />
-        </div>
+        </div> -->
         <!--full name-->
-        <div id="details">
-          <h3 id="headerName ">Zienab Khaled</h3>
+        <!-- <div id="details">
+          <h3 id="headerName ">Zienab Khaled</h3> -->
           <!--status-->
-          <h3 id="headerStatus">Online</h3>
-        </div>
+          <!-- <h3 id="headerStatus">Online</h3>
+        </div> -->
         <!--logout button-->
         <button id="logout"><a href="php/logout.php">Logout</a></button>
       </div>

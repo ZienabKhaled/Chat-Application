@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once("config.php");
-$sql= "SELECT * FROM `users` WHERE id !='{$_SESSION["id"]}' AND status='online' ";
+$sql= "SELECT * FROM `users` WHERE id !='{$_SESSION['id']}' AND status='online' ";
 $query=mysqli_query($conn,$sql);
 
 if(!$query){
@@ -16,3 +16,4 @@ if(!$query){
     }
 }
 ?>
+
