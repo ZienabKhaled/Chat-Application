@@ -4,9 +4,9 @@ include_once("config.php");
 session_start();
 $searchValue = mysqli_real_escape_string($conn, $_POST['search']);
 
-$sql = "SELECT * FROM `users` WHERE id = '{$_SESSION["id"]}' AND (firstname LIKE '%$searchValue%' OR lastname LIKE '%$searchValue%')";
+$sql = "SELECT * FROM `users` WHERE NOT id = '{$_SESSION["id"]}' AND (firstname LIKE '%$searchValue%' OR lastname LIKE '%$searchValue%')";
 $query = mysqli_query($conn, $sql);
-echo $sql;
+
 if(mysqli_num_rows($query) > 0){
     include_once("data.php");
 }else{

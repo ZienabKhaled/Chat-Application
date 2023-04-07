@@ -14,6 +14,7 @@ if(!$runGetMsgQuery){
 }else{
     if(mysqli_num_rows($runGetMsgQuery) > 0){
         while($row = mysqli_fetch_assoc($runGetMsgQuery)){
+            // print_r ($row) ;
             if(!empty($row) && isset($row['outgoing']) && isset($row['incoming'])){
                 if($row['outgoing'] == $outgoingid){
                     echo '<div class="responseCard outgoing">

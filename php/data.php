@@ -6,7 +6,10 @@ while($row = mysqli_fetch_assoc($query)){
 // show last message send
 $outgoing = $_SESSION['id'];
 $incoming = $row['id'];
-$sql = "SELECT * FROM `messages` WHERE (incoming = '{$incoming}' AND outgoing = '{$outgoing}') OR (incoming = '{$outgoing}' AND outgoing = '{$incoming}') ORDER BY messages_id DESC LIMIT 1";
+$sql = "SELECT * FROM `messages` WHERE (incoming = '{$incoming}'
+ AND outgoing = '{$outgoing}') OR 
+ (incoming = '{$outgoing}' AND outgoing = '{$incoming}')
+  ORDER BY messages_id DESC LIMIT 1";
 
 $runSQL = mysqli_query($conn, $sql);
 
@@ -28,8 +31,7 @@ if($row['status'] == "Online"){
     $status = "offline";
 }
 // show Online users
-    $onlineUsers = '
-    <a href="messages.php?userid='.$row["id"].'">
+    $onlineUsers = '<a href="messages.php?userid='.$row["id"].'">
     <div class="profile">
         <!-- profile image -->
         <div class="image">
@@ -39,11 +41,9 @@ if($row['status'] == "Online"){
         <h2 class="name">'.$row["firstname"]." ".$row["lastname"].'</h2>
         <!-- last message -->
         <p class="lastMessage">'.$lastMessage.'</p>
-        <!-- status -->
+        <!-- status => Online or Offline -->
         <div class="status '.$status.'"></div>
     </div>
 </a>';
 echo $onlineUsers;
 };
-
-?>

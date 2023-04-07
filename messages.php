@@ -81,12 +81,12 @@ if (!isset($_SESSION['id'])) {
     </div>
 
     <!-- input messages -->
-    <form action="" method="POST" id="typingArea">
+    <form action="" id="typingArea">
     <div id="messagingTypingSection">
-        <input type="text" name="outgoing" placeholder="Type Your Message Here." id="outgoing" class="setid" autocomplete="off" value="<?php echo $myid; ?>" hidden>
-        <input type="text" name="incoming" placeholder="Type Your Message Here." id="incoming" class="setid" autocomplete="off" value="<?php echo $userid;?>" hidden>
-        <input type="text" name="typingField" placeholder="Type Your Message Here." id="typingField" autocomplete="off">
-        <input type="submit" value="Send" id="sendMessage">
+    <input type="text" name="outgoing" placeholder="Type Your Message Here." id="outgoing" class="setid" autocomplete="off" value="<?php echo $myid; ?>" hidden>
+    <input type="text" name="incoming" placeholder="Type Your Message Here." id="incoming" class="setid" autocomplete="off" value="<?php echo $userid?>" hidden>
+    <input type="text" name="typingField" placeholder="Type Your Message Here." id="typingField" autocomplete="off">
+            <input type="submit" value="Send" id="sendMessage">
     </div>
         </form>
     </div>
